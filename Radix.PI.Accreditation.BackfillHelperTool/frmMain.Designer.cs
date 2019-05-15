@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.piSystemPicker = new OSIsoft.AF.UI.PISystemPicker();
             this.afDatabasePicker = new OSIsoft.AF.UI.AFDatabasePicker();
             this.afTreeView1 = new OSIsoft.AF.UI.AFTreeView();
@@ -66,7 +67,7 @@
             this.piSystemPicker.ShowNew = false;
             this.piSystemPicker.ShowNext = false;
             this.piSystemPicker.ShowPrevious = false;
-            this.piSystemPicker.Size = new System.Drawing.Size(298, 22);
+            this.piSystemPicker.Size = new System.Drawing.Size(292, 22);
             this.piSystemPicker.TabIndex = 0;
             this.piSystemPicker.ConnectionChange += new OSIsoft.AF.UI.ConnectionChangeEventHandler(this.piSystemPicker_ConnectionChange);
             // 
@@ -257,6 +258,7 @@
             this.Controls.Add(this.afTreeView1);
             this.Controls.Add(this.afDatabasePicker);
             this.Controls.Add(this.piSystemPicker);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.Text = "AF Analysis Backfill Helper";
             this.groupBox1.ResumeLayout(false);

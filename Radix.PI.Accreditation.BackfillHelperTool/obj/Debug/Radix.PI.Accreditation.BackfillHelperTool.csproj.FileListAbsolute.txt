@@ -7,3 +7,12 @@ C:\Dados\Workspace\Radix.PI.Accreditation.BackfillHelperTool\Radix.PI.Accreditat
 C:\Dados\Workspace\Radix.PI.Accreditation.BackfillHelperTool\Radix.PI.Accreditation.BackfillHelperTool\bin\Debug\Radix.PI.Accreditation.BackfillHelperTool.pdb
 C:\Dados\Workspace\Radix.PI.Accreditation.BackfillHelperTool\Radix.PI.Accreditation.BackfillHelperTool\obj\Debug\Radix.PI.Accreditation.BackfillHelperTool.exe
 C:\Dados\Workspace\Radix.PI.Accreditation.BackfillHelperTool\Radix.PI.Accreditation.BackfillHelperTool\obj\Debug\Radix.PI.Accreditation.BackfillHelperTool.pdb
+C:\Dados\git-personal\afsdk-backfill-helper\Radix.PI.Accreditation.BackfillHelperTool\bin\Debug\Radix.PI.Accreditation.BackfillHelperTool.exe.config
+C:\Dados\git-personal\afsdk-backfill-helper\Radix.PI.Accreditation.BackfillHelperTool\obj\Debug\Radix.PI.Accreditation.BackfillHelperTool.exe
+C:\Dados\git-personal\afsdk-backfill-helper\Radix.PI.Accreditation.BackfillHelperTool\obj\Debug\Radix.PI.Accreditation.BackfillHelperTool.pdb
+C:\Dados\git-personal\afsdk-backfill-helper\Radix.PI.Accreditation.BackfillHelperTool\bin\Debug\Radix.PI.Accreditation.BackfillHelperTool.exe
+C:\Dados\git-personal\afsdk-backfill-helper\Radix.PI.Accreditation.BackfillHelperTool\bin\Debug\Radix.PI.Accreditation.BackfillHelperTool.pdb
+C:\Dados\git-personal\afsdk-backfill-helper\Radix.PI.Accreditation.BackfillHelperTool\obj\Debug\Radix.PI.Accreditation.BackfillHelperTool.csprojResolveAssemblyReference.cache
+C:\Dados\git-personal\afsdk-backfill-helper\Radix.PI.Accreditation.BackfillHelperTool\obj\Debug\Radix.PI.Accreditation.BackfillHelperTool.frmMain.resources
+C:\Dados\git-personal\afsdk-backfill-helper\Radix.PI.Accreditation.BackfillHelperTool\obj\Debug\Radix.PI.Accreditation.BackfillHelperTool.Properties.Resources.resources
+C:\Dados\git-personal\afsdk-backfill-helper\Radix.PI.Accreditation.BackfillHelperTool\obj\Debug\Radix.PI.Accreditation.BackfillHelperTool.csproj.GenerateResource.Cache
