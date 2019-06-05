@@ -48,23 +48,40 @@ namespace Radix.PI.Accreditation.BackfillHelperTool
         {
             selectedElement = afTreeView1.AFSelection as AFElement;
             lbSelectedAnalysis.Items.Clear();
+
             if (selectedElement != null)
             {
-                selectedAnalyses = selectedElement.Analyses.ToList<AFAnalysis>();
-                lbSelectedAnalysis.Items.AddRange(selectedAnalyses.ToArray<AFAnalysis>());
-                
+                getSelectedAnalysesBySelectedElement();
+                filterSelectedAnalysesByInputedName();
+                printSelectedAnalysesInDisplay();
             }
+        }
+
+        private void printSelectedAnalysesInDisplay()
+        {
+            lbSelectedAnalysis.Items.Clear();
+            lbSelectedAnalysis.Items.AddRange(selectedAnalyses.ToArray<AFAnalysis>());
+        }
+
+        private void getSelectedAnalysesBySelectedElement()
+        {
+            selectedAnalyses = selectedElement.Analyses.ToList<AFAnalysis>();
         }
 
         private void cbBackfillMode_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            setBackfillSelectedMode();
+        }
+
+        private void setBackfillSelectedMode()
+        {
             string selectedMode = cbBackfillMode.SelectedItem as string;
 
             if (!String.IsNullOrEmpty(selectedMode))
             {
                 switch (selectedMode)
-                {  
+                {
                     case "Only Fill in Gaps":
                         backfillCalcMode = AFAnalysisService.CalculationMode.FillDataGaps;
                         chbCalcDependencies.Enabled = false;
@@ -103,19 +120,17 @@ namespace Radix.PI.Accreditation.BackfillHelperTool
             }
         }
 
-
-
         private void tbNameFilter_TextChanged(object sender, EventArgs e)
         {
 
-            lbSelectedAnalysis.Items.Clear();
+            filterSelectedAnalysesByInputedName();
+            printSelectedAnalysesInDisplay();
+        }
 
+        private void filterSelectedAnalysesByInputedName()
+        {
             selectedAnalyses = selectedElement.Analyses.Where<AFAnalysis>(a =>
                 a.Name.ToLower().Contains(tbNameFilter.Text.ToLower())).ToList<AFAnalysis>();
-
-
-
-            lbSelectedAnalysis.Items.AddRange(selectedAnalyses.ToArray<AFAnalysis>());
         }
 
         private void btnQueue_Click(object sender, EventArgs e)
@@ -125,9 +140,13 @@ namespace Radix.PI.Accreditation.BackfillHelperTool
             AFTime endTime = new AFTime(tbEndTime.Text);
             AFTimeRange timeRange = new AFTimeRange(startTime,endTime);
 
+            queueBackfill(service, timeRange);
+        }
+
+        private void queueBackfill(AFAnalysisService service, AFTimeRange timeRange)
+        {
             string outNotQueueReason;
             bool canQueue = service.CanQueueCalculation(out outNotQueueReason);
-
 
             if (canQueue)
             {
@@ -137,10 +156,9 @@ namespace Radix.PI.Accreditation.BackfillHelperTool
                 message = String.Format("{0} - {1} {2} {3}"
                     , DateTime.Now.ToString()
                     , selectedAnalyses.Count.ToString()
-                    ,"Analyses queued successfully. Request ID:"
+                    , "Analyses Backfill queued successfully. Request ID:"
                     , queueResponse.ToString());
                 lbLog.Items.Add(message);
-
             }
             else
             {
