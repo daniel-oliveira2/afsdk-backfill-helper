@@ -12,6 +12,7 @@ using OSIsoft.AF.Time;
 using OSIsoft.AF.Asset;
 using OSIsoft.AF.Analysis;
 using OSIsoft.AF.Data;
+using OSIsoft.AF.UI;
 
 
 namespace Radix.PI.Accreditation.BackfillHelperTool
@@ -34,12 +35,12 @@ namespace Radix.PI.Accreditation.BackfillHelperTool
             chbCalcDependencies.Enabled = false;
         }
 
-        private void piSystemPicker_ConnectionChange(object sender, OSIsoft.AF.UI.SelectionChangeEventArgs e)
+        private void piSystemPicker_ConnectionChange(object sender, SelectionChangeEventArgs e)
         {
             afDatabasePicker.PISystem = piSystemPicker.PISystem;
         }
 
-        private void afDatabasePicker_SelectionChange(object sender, OSIsoft.AF.UI.SelectionChangeEventArgs e)
+        private void afDatabasePicker_SelectionChange(object sender, SelectionChangeEventArgs e)
         {
             afTreeView1.AFRoot = afDatabasePicker.AFDatabase.Elements;
         }
@@ -106,16 +107,20 @@ namespace Radix.PI.Accreditation.BackfillHelperTool
         {
             if (chbCalcDependencies.Checked)
             {
-                if (backfillCalcMode != AFAnalysisService.CalculationMode.FillDataGaps)
+                if (backfillCalcMode != AFAnalysisService.CalculationMode
+                    .FillDataGaps)
                 {
-                    backfillCalcMode = AFAnalysisService.CalculationMode.DeleteExistingDataCalculateDependents;
+                    backfillCalcMode = AFAnalysisService.CalculationMode
+                        .DeleteExistingDataCalculateDependents;
                 }
             }
             else
             {
-                if (backfillCalcMode != AFAnalysisService.CalculationMode.FillDataGaps)
+                if (backfillCalcMode != AFAnalysisService.CalculationMode
+                    .FillDataGaps)
                 {
-                    backfillCalcMode = AFAnalysisService.CalculationMode.DeleteExistingData;
+                    backfillCalcMode = AFAnalysisService.CalculationMode
+                        .DeleteExistingData;
                 }
             }
         }
@@ -163,9 +168,13 @@ namespace Radix.PI.Accreditation.BackfillHelperTool
             else
             {
                 string message;
-                message = String.Format("{0} - {1}", DateTime.Now.ToString(), "AF Analysis Service is not available for queuing...");
+                message = String.Format("{0} - {1}"
+                        , DateTime.Now.ToString()
+                        , "AF Analysis Service is not available for queuing...");
                 lbLog.Items.Add(message);
-                message = String.Format("{0} - Reason: {1}", DateTime.Now.ToString(), outNotQueueReason);
+                message = String.Format("{0} - Reason: {1}"
+                        , DateTime.Now.ToString()
+                        , outNotQueueReason);
                 lbLog.Items.Add(message);
             }
         }
